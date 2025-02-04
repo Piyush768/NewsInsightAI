@@ -1,0 +1,18 @@
+import os
+import pickle
+import time
+import streamlit as st
+import nltk
+from dotenv import load_dotenv
+
+# Ensure necessary NLTK packages are installed
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+# ✅ Corrected Imports for Latest LangChain
+from langchain_community.document_loaders import UnstructuredURLLoader
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_community.vectorstores import FAISS
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.chains import RetrievalQAWithSourcesChain
+from langchain_openai import OpenAI  # ✅ Fixed OpenAI Import
